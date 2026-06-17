@@ -1,6 +1,6 @@
 from typing import Any, Union, Optional
 
-import gym
+import gymnasium as gym
 import numpy as np
 
 from ...sim import MineDojoSim
@@ -69,6 +69,14 @@ class ARMasksWrapper(gym.ObservationWrapper):
         ).nonzero()[0]
         # get recipe matrix
         self._recipes = get_recipes_matrix()
+
+    def reset(self, **kwargs):
+        observation = self.env.reset(**kwargs)
+        return self.observation(observation)
+
+    def step(self, action):
+        observation, reward, done, info = self.env.step(action)
+        return self.observation(observation), reward, done, info
 
     def observation(self, observation: dict[str, Any]):
         # ------ craft smelt mask ------

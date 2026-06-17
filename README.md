@@ -107,7 +107,7 @@ MineCLIP reward model and agent code are [open-sourced](https://github.com/MineD
 # Benchmarking Suite
 
 MineDojo features a massively multitask benchmark with **3142 tasks** in the current release. 
-We design a unified top-level function `minedojo.make()`, similar to [`gym.make`](https://www.gymlibrary.ml/content/api/), that creates all the tasks and environments in our benchmarking suite. We categorize the tasks into **Programmatic**, **Creative**, and **Playthrough**.
+We design a unified top-level function `minedojo.make()`, similar to [`gymnasium.make`](https://gymnasium.farama.org/api/registry/), that creates all the tasks and environments in our benchmarking suite. We categorize the tasks into **Programmatic**, **Creative**, and **Playthrough**.
 
 
 | Task Category | Count | Description                                                        |

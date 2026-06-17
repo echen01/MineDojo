@@ -2,7 +2,7 @@ from typing import Union
 from copy import deepcopy
 from collections import deque
 
-import gym
+import gymnasium as gym
 import numpy as np
 
 from ..utils import *

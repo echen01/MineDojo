@@ -1,7 +1,7 @@
 import math
 from typing import Union, Sequence
 
-import gym
+import gymnasium as gym
 import numpy as np
 
 from ...sim import MineDojoSim

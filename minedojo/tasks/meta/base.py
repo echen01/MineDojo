@@ -3,7 +3,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import List, Dict, Any, Union, Tuple, Optional
 
-import gym
+import gymnasium as gym
 import numpy as np
 
 from ...sim import MineDojoSim

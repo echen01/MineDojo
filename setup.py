@@ -1,6 +1,4 @@
-import os
 import pathlib
-import pkg_resources
 from setuptools import setup, find_packages
 
 
@@ -17,10 +15,13 @@ def _read_file(fname):
 
 
 def _read_install_requires():
+    requirements = []
     with pathlib.Path("requirements.txt").open() as fp:
-        return [
-            str(requirement) for requirement in pkg_resources.parse_requirements(fp)
-        ]
+        for line in fp:
+            requirement = line.strip()
+            if requirement and not requirement.startswith("#"):
+                requirements.append(requirement)
+    return requirements
 
 
 def _fill_extras(extras):
@@ -32,14 +33,14 @@ def _fill_extras(extras):
 setup(
     name=PKG_NAME,
     version=VERSION,
-    author=f"MineDojo Team",
+    author="MineDojo Team",
     url="http://github.com/MineDojo/MineDojo",
     description="research project",
     long_description=_read_file("README.md"),
     long_description_content_type="text/markdown",
     keywords=["Deep Learning", "Machine Learning"],
     license="MIT License",
-    packages=find_packages(include=f"{PKG_NAME}.*"),
+    packages=find_packages(include=[PKG_NAME, f"{PKG_NAME}.*"]),
     include_package_data=True,
     zip_safe=False,
     install_requires=_read_install_requires(),
@@ -50,5 +51,8 @@ setup(
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Environment :: Console",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
 )

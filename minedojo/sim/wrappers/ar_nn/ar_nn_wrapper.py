@@ -1,6 +1,6 @@
 from typing import Union, Optional
 
-import gym
+import gymnasium as gym
 
 from .ar_masks_wrapper import ARMasksWrapper as _ARMasksWrapper
 from .nn_action_space_wrapper import NNActionSpaceWrapper as _NNActionSpaceWrapper
@@ -42,3 +42,6 @@ class ARNNWrapper(gym.Wrapper):
 
     def reverse_action(self, action):
         return self.env.env.env.reverse_action(action)
+
+    def reset(self):
+        return self.env.reset()

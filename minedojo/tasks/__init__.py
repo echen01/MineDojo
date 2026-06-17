@@ -1,7 +1,7 @@
 from __future__ import annotations
+from importlib import resources
 import re
 import sys
-import importlib_resources
 from itertools import product
 from omegaconf import OmegaConf
 
@@ -26,8 +26,7 @@ _logger.addHandler(_stream_handler)
 
 
 def _resource_file_path(fname) -> str:
-    with importlib_resources.path("minedojo.tasks.description_files", fname) as p:
-        return str(p)
+    return str(resources.files("minedojo.tasks.description_files").joinpath(fname))
 
 
 _MetaTaskName2Class = {

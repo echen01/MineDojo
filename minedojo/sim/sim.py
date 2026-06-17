@@ -3,7 +3,7 @@ from copy import deepcopy
 from typing import Union, Optional, List, Dict, Tuple, Literal, Any
 
 import cv2
-import gym
+import gymnasium as gym
 import numpy as np
 from lxml import etree
 

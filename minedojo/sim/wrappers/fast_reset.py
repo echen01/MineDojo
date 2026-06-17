@@ -12,7 +12,7 @@ Side effects:
 """
 from __future__ import annotations
 
-import gym
+import gymnasium as gym
 
 from ..sim import MineDojoSim
 from ...sim.mc_meta.mc import MAX_FOOD, MAX_LIFE

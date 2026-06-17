@@ -137,7 +137,7 @@ class KeybasedCommandAction(Action):
 
 #         out = self.space.no_op()
 #         out.update({
-#             out[self.keymap[a]] : np.array(1, dtype=np.int) for a in actions_mapped
+#             out[self.keymap[a]] : np.array(1, dtype=int) for a in actions_mapped
 #         })
 
 
